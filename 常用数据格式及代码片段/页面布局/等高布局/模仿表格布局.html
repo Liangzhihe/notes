@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>布局-等高布局-模仿表格</title>
+  <style>
+    .table {
+      display: table;
+      width: 100%;
+      min-width: 1000px;
+      margin: 0 auto;
+      padding: 0;
+    }
+    .tableRow {
+      display: table-row;
+    }
+    .tableCell {
+      display: table-cell;
+    }
+    .left, .right {
+      width: 200px;
+      background-color: #ccc;
+    }
+    .center {
+      height: 600px;
+      background-color: #eee;
+    }
+    .center-inner {
+      margin: 0 20px;
+      height: 100%;
+      background-color: #ddd;
+    }
+
+  </style>
+</head>
+<body>
+  <div class="wrap table">
+    <div class="wrap-inner tableRow">
+      <div class="left tableCell"></div>
+      <div class="center tableCell">
+        <div class="center-inner">1</div>
+      </div>
+      <div class="right tableCell"></div>
+    </div>
+  </div>
+</body>
+</html>

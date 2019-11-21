@@ -1,0 +1,44 @@
+<!-- 如果是普通的两列布局，浮动+普通元素的margin便可以实现，
+但如果是自适应的两列布局，利用float+overflow:hidden便可以实现，
+这种办法主要通过overflow触发BFC,而BFC不会重叠浮动元素。
+由于设置overflow:hidden并不会触发IE6-浏览器的haslayout属性，所以需要设置zoom:1来兼容IE6-浏览器 -->
+
+<!DOCTYPE html>
+<html lang="zh-cmn-Hans">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>布局-两列布局-浮动</title>
+  <style>
+    .wrap {
+      overflow: hidden;
+      zoom: 1;
+      background-color: #eee;
+    }
+    .left {
+      float: left;
+      width: 200px;
+      margin-right: 20px;
+      background-color: #ccc;
+    }
+    .right {
+      overflow: hidden;
+      zoom: 1;
+      height: 500px;
+      background-color: #ddd;
+    }
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <div class="left">
+      <p>LEFT</p>
+    </div>
+    <div class="right">
+      <p>right</p>
+      <p>right</p>
+    </div>
+  </div>
+</body>
+</html>

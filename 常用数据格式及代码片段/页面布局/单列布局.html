@@ -1,0 +1,74 @@
+<!-- 常见的单列布局有两种：
+
+header,content和footer等宽的单列布局
+header与footer等宽,content略窄的单列布局 -->
+
+<!DOCTYPE html>
+<html lang="zh-cmn-Hans">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>布局-单列布局</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      text-align: center;
+    }
+
+    #type1 .header,
+    #type1 .content,
+    #type1 .footer {
+      margin: 0 auto;
+      max-width: 960px;
+    }
+    #type1 .header,
+    #type1 .footer {
+      height: 50px;
+      background-color: #eee;
+    }
+    #type1 .content {
+      height: 200px;
+      background-color: #ddd;
+    }
+
+
+    #type2 {
+      margin-top: 100px;
+    }
+    #type2 .header,
+    #type2 .footer {
+      height: 50px;
+      background-color: #eee;
+    }
+    #type2 .header .nav,
+    #type2 .footer .nav,
+    #type2 .content {
+      margin: 0 auto;
+      max-width: 960px;
+    }
+    #type2 .content {
+      height: 200px;
+      background-color: #ddd;
+    }
+  </style>
+</head>
+<body>
+  <div id="type1">
+    <div class="header">header,content和footer等宽的单列布局</div>
+    <div class="content">content</div>
+    <div class="footer">footer</div>
+  </div>
+  <div id="type2">
+    <div class="header">
+      <div class="nav">header与footer等宽,content略窄的单列布局</div>
+    </div>
+    <div class="content">content</div>
+    <div class="footer">
+      <div class="nav">footer</div>
+    </div>
+  </div>
+  
+</body>
+</html>
