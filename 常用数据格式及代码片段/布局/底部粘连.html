@@ -1,0 +1,43 @@
+<!-- 有一块内容<main>，当<main>的高度足够长的时候，紧跟在<main>后面的元素<footer>会跟在<main>元素的后面。
+     当<main>元素比较短的时候(比如小于屏幕的高度),我们期望这个<footer>元素能够“粘连”在屏幕的底部 -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>布局-底部粘连</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+    }
+    html, body {
+      height: 100%;
+    }
+    #wrap {
+      min-height: 100%;
+      background-color: #eee;
+      overflow: hidden;
+    }
+    #wrap .main {
+      padding-bottom: 50px;
+    }
+    #footer {
+      margin-top: -50px;
+      height: 50px;
+      background-color: #ccc;
+    }
+  </style>
+</head>
+<body>
+  <div id="wrap">
+    <div class="main">
+      <p>1</p>
+      <p>2</p>
+      <p>3</p>
+    </div>
+  </div>
+  <div id="footer">footer</div>
+</body>
+</html>
