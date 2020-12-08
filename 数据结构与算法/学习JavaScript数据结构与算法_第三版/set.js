@@ -1,4 +1,3 @@
-```js
 // 实现一些方法
 // add(element)    向集合添加一个新元素
 // delete(element) 从集合移除一个元素
@@ -6,6 +5,11 @@
 // clear()         移除集合中所有元素
 // size()          返回集合中元素的个数
 // values()        返回一个包含集合中所有元素的数组
+
+// union(otherSet)        并集
+// intersection(otherSet) 交集
+// difference(otherSet)   差集
+// isSubsetOf(otherSet)   子集
 
 class Set {
   constructor() {
@@ -23,7 +27,6 @@ class Set {
     } else {
       this.items[element] = element
       this.count += 1
-      return true
     }
   }
 
@@ -37,20 +40,16 @@ class Set {
     }
   }
 
+
   clear() {
     this.items = {}
     this.count = 0
   }
 
-  // 此处使用count是较为原始且相对简单的一种方法
-  // 此外，还可以直接return Object.keys(this.items).length
-  // 或迭代手动累加每一个items对象中的属性
   size() {
     return this.count
   }
 
-  // 此处使用for...in是较为原始的方法
-  // 此外，还可以直接return Object.values(this.items)
   values() {
     const arr = []
     for ( let item in this.items) {
@@ -60,20 +59,6 @@ class Set {
     }
     return arr
   }
-}
-
-```
-
-### 7.3 集合运算
-
-+ 并集：对于给定的两个集合，返回一个包含两个集合中所有元素的新集合
-+ 交集：对于给定的两个集合，返回一个包含两个集合中共有元素的新集合
-+ 差集：对于给定的两个集合，返回一个包含所有存在于第一个集合且不存在于第二个集合的元素的新集合
-+ 子集：验证一个给定集合是否是另一集合的子集
-
-#### 7.3.1~4 并集，交集，差集，子集
-
-```js
 
   union(otherSet) {
     const unionSet = new Set()
@@ -105,21 +90,24 @@ class Set {
   isSubsetOf(otherSet) {
     return this.values().every(item => otherSet.has(item))
   }
+}
 
-```
 
-### 7.4 ES6 Set类
+const setA = new Set()
+const setB = new Set()
 
-```js
-// 并集
-new Set([...setA, ...setB])
-// 交集
-new Set([...setA].filter(item => setB.has(item)))
-// 差集
-new Set([...setA].filter(item => !setB.has(item)))
-// 子集
-[...setA].every(item => setB.has(item))
-```
+setA.add(1)
+setA.add(2)
+setA.add(3)
+setA.add(5)
 
-### 7.5 多重集或袋
+setB.add(1)
+setB.add(2)
+setB.add(3)
+setB.add(4)
+
+console.log(setA.union(setB).values())        // 并集 [12345]
+console.log(setA.intersection(setB).values()) // 交集 [123]
+console.log(setA.difference(setB).values())   // 差集 [5]
+console.log(setA.isSubsetOf(setB))            // 子集 false
 
